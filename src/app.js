@@ -14,11 +14,14 @@ import { addLogger, logger } from './config/logger.js'
 import { title } from 'process'
 import swaggerJSDoc from 'swagger-jsdoc'
 import swaggerUiExpress from 'swagger-ui-express'
+import dotenv from 'dotenv'
 
+dotenv.config()
 
 const app = express()
-const connection = mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL)
 const PORT = configObject.port 
+
 
 app.use(express.static('public'))
 app.use(express.json())
